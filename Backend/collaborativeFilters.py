@@ -5,7 +5,7 @@ import connectDB as cDB
 
 moviesDataSet = pd.read_csv('./csvFiles/movies.csv')
 movies = {
-    'movieId': moviesDataSet['id'],
+    'movieId': moviesDataSet['movieId'],
     'title': moviesDataSet['title']
 }
 movies_df = pd.DataFrame(movies)
@@ -75,6 +75,10 @@ def collaborativeFilters(coefficientsDF):
             suggestionsAux['movieId'].append(int(values[0]))
             suggestionsAux['weightedAverage'].append(values[1])
     suggestionsAuxDF = pd.DataFrame(suggestionsAux)
+    suggestionsAuxDF = pd.merge(
+        suggestionsAuxDF,
+        movies_df[movies_df['movieId'].isin(suggestionsAuxDF['movieId'])]
+    )
     
     return suggestionsAuxDF
 
