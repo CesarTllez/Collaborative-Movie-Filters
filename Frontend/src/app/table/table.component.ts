@@ -1,8 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { PeliculaService } from 'src/_services/pelicula.service';
-import { MatPaginator } from '@angular/material/paginator';
+
 import { MatTableDataSource } from '@angular/material/table';
 import { RatingService } from 'src/_services/raiting.service';
+import { MatPaginator } from '@angular/material/paginator';
 
 
 @Component({
@@ -12,7 +13,7 @@ import { RatingService } from 'src/_services/raiting.service';
 })
 export class TableComponent implements OnInit {
 
-  displayedColumns: string[] = ['movieId', 'title', 'rating'];
+  displayedColumns: string[] = ['title', 'rating'];
   dataSource = new MatTableDataSource<any>();
 
 

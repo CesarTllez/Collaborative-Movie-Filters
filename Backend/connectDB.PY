@@ -3,7 +3,7 @@ import psycopg2 as psy
 connectionDB = psy.connect(
     database = 'movies_db',
     user = 'postgres',
-    password = 'H@wkers358s',
+    password = 'Nacional123',
     host = 'localhost',
     port = '5432'
 )

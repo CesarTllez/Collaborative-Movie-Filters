@@ -1,42 +1,38 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
+import { PeliculaService } from 'src/_services/pelicula.service';
 import { RatingService } from 'src/_services/raiting.service';
 
 @Component({
-  selector: 'app-table-recomendation',
-  templateUrl: './table-recomendation.component.html',
-  styleUrls: ['./table-recomendation.component.css']
+  selector: 'app-recomendation',
+  templateUrl: './recomendation.component.html',
+  styleUrls: ['./recomendation.component.css']
 })
+export class RecomendationComponent implements OnInit {
 
-export class TableRecomendationComponent implements OnInit {
-
-  displayedColumns: string[] = ['movieId', 'weightedAverage'];
-
+  displayedColumns: string[] = ['movieId', 'title', 'weightedAverage'];
   dataSource = new MatTableDataSource<any>();
-
-  
 @ViewChild(MatPaginator) paginator!: MatPaginator;
 
-  listaPeliculas: any;
-  
+  listaRecomendacion: any;
+
   constructor(
-    private ratService: RatingService
+    private raitingService: RatingService,
+    private peliculaSrvice: PeliculaService
   ) { }
 
   ngOnInit(): void {
-    this.ratService.obtener().subscribe(
+    this.raitingService.obtener().subscribe(
       data => {
-        this.listaPeliculas = data;
+        this.listaRecomendacion = data;
         this.dataSource = new MatTableDataSource(data);
         console.log(data)
         this.dataSource.paginator = this.paginator;
       },
-
-      error => {
+      error =>{
         console.log(error);
       }
-      
     )
   }
 

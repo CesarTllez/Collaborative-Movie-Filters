@@ -3,14 +3,9 @@
   <div class="mat-elevation-z8">
     <table mat-table [dataSource]="dataSource">
       <!-- Position Column -->
-      <ng-container matColumnDef="movieId">
-        <th mat-header-cell *matHeaderCellDef>&nbsp;Id.</th>
-        <td mat-cell *matCellDef="let pelicula">{{ pelicula.movieId }}</td>
-      </ng-container>
-
       <!-- Name Column -->
       <ng-container matColumnDef="title">
-        <th mat-header-cell *matHeaderCellDef>&nbsp;ombre</th>
+        <th mat-header-cell *matHeaderCellDef>&nbsp;Nombre</th>
         <td mat-cell *matCellDef="let pelicula">{{ pelicula.title }}</td>
         <input type="text" />
       </ng-container>

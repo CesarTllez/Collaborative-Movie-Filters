@@ -1,0 +1,45 @@
+table{
+    width: 80%;
+    height: 100px;
+    padding: 200px;
+    margin-left: 200px;
+    font-family: Arial;
+    border: 1px solid #555;
+    border-collapse: collapse;
+
+  }
+  td{
+    border: solid 1px;
+      padding: 0%;
+      background-color: aliceblue;
+  }
+  th{
+    border: solid 1px;
+    background-color: #4c837a;
+    color: #e1ddbf;
+    text-justify: auto;
+    text-align:justify ;
+
+  }
+  h2{
+      width: 37%;
+      margin-left: 2.5em;
+      text-align: center;
+      padding: 3%;
+      color: #e1ddbf;
+  }
+  #paginator{
+    width: 80%;
+    margin-left: 200px;
+  }
+
+  .ctn-slider {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .btn-slider {
+    height: 90%;
+    margin-left: 2em;
+  }
