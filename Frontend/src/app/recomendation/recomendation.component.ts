@@ -10,20 +10,22 @@ import { RatingService } from 'src/_services/raiting.service';
   styleUrls: ['./recomendation.component.css']
 })
 export class RecomendationComponent implements OnInit {
-
-  displayedColumns: string[] = ['movieId', 'title', 'weightedAverage'];
+  idNombre = [];
+  displayedColumns: string[] = [ 'title'];
   dataSource = new MatTableDataSource<any>();
 @ViewChild(MatPaginator) paginator!: MatPaginator;
 
   listaRecomendacion: any;
-
+   
   constructor(
     private raitingService: RatingService,
-    private peliculaSrvice: PeliculaService
+    private peliculaService: PeliculaService
   ) { }
 
+   
   ngOnInit(): void {
-    this.raitingService.obtener().subscribe(
+
+    this.raitingService.obtener().subscribe(  
       data => {
         this.listaRecomendacion = data;
         this.dataSource = new MatTableDataSource(data);
